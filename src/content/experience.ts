@@ -14,7 +14,7 @@ export const experienceContent = {
       workType: "On-site",
       website: "https://www.gendigital.com/",
       description: [
-        "Developed and optimized scalable backend microservices for the eStore platform as part of the LEAP team, improving performance and API integration, which contributed to a 10% increase in user traffic"
+        "Developed and optimized scalable backend microservices for the eStore platform as part of the LEAP team, improving performance and API integration, which contributed to a 10% increase in user traffic."
       ],
       technologies: ["Java", "Spring Boot", "Microservices", "Backend Development", "API Design", "System Architecture"],
       achievements: [
