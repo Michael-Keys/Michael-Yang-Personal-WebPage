@@ -90,7 +90,10 @@ export default function Experience() {
 
                 {/* Experience Card - Mac Window Style */}
                 <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                  <div className="border border-border rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 relative overflow-hidden group">
+                  <div 
+                    className="border border-border rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 relative overflow-hidden group cursor-pointer"
+                    onDoubleClick={() => openFullscreen(exp.id)}
+                  >
                   
                     {/* Mac Window Title Bar */}
                     <div className="bg-background border-b border-border px-4 py-3 rounded-t-lg flex items-center justify-between">
@@ -107,7 +110,7 @@ export default function Experience() {
                       {/* Window Title */}
                       <div className="flex-1 text-center">
                         <span className="text-sm font-medium text-foreground truncate tracking-wide">
-                          {exp.position}
+                          {exp.title}
                         </span>
                       </div>
                       
@@ -115,17 +118,36 @@ export default function Experience() {
                       <div className="w-[52px]"></div>
                     </div>
                     
-                    {/* Mobile Date */}
-                    <div className="md:hidden bg-gradient-to-r from-blue-500 to-blue-600 foreground rounded-lg px-4 py-3 text-center mb-6 w-fit shadow-lg shadow-blue-500/20 mx-4 mt-4">
-                      <div className="text-sm font-medium">
-                        {exp.startDate} - {exp.endDate}
+                    {/* Mobile Date and Internship Badge */}
+                    <div className="md:hidden flex items-center justify-between mx-4 mt-4 mb-6">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-blue-500" />
+                        <span className="text-sm font-medium text-foreground">
+                          {exp.startDate} - {exp.endDate}
+                        </span>
                       </div>
+                      <span className="text-blue-600 dark:text-blue-400 text-xs font-medium">
+                        {exp.type}
+                      </span>
+                    </div>
+
+                    {/* Desktop Date and Internship Badge */}
+                    <div className="hidden md:flex items-center justify-between mx-6 mt-4 mb-6">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-blue-500" />
+                        <span className="text-sm font-medium text-foreground">
+                          {exp.startDate} - {exp.endDate}
+                        </span>
+                      </div>
+                      <span className="text-blue-600 dark:text-blue-400 text-xs font-medium">
+                        {exp.type}
+                      </span>
                     </div>
 
                     {/* Window Content - Simplified */}
                     <div className="p-6 pb-4 bg-background/60 backdrop-blur-sm">
                       {/* Company and Job Title Layout */}
-                      <div className="flex items-start gap-4 mb-4">
+                      <div className="flex items-start gap-4 mb-6">
                         {/* Company Icon */}
                         <div className="flex-shrink-0">
                           {exp.company === "Gen Digital" ? (
@@ -169,29 +191,26 @@ export default function Experience() {
                         
                         {/* Company Name and Job Title */}
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-3 mb-1">
+                          <div className="mb-2">
                             <a
                               href={exp.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-foreground hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-lg transition-colors duration-200 tracking-tight"
+                              className="text-foreground hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-lg transition-colors duration-200 tracking-tight block"
                             >
                               {exp.company}
                             </a>
-                            <span className="text-blue-600 dark:text-blue-400 text-xs font-medium">
-                              {exp.type}
-                            </span>
                           </div>
-                          <h3 className="text-base font-medium text-foreground tracking-tight">
+                          <h3 className="text-base font-medium text-foreground tracking-tight text-muted-foreground">
                             {exp.position}
                           </h3>
                         </div>
                       </div>
 
                       {/* Description Only */}
-                      <div className="space-y-3">
+                      <div className="ml-16 space-y-3">
                         {exp.description.map((desc, i) => (
-                          <p key={i} className="text-sm leading-relaxed text-foreground font-medium">
+                          <p key={i} className="text-sm leading-relaxed text-foreground font-normal">
                             {desc}
                           </p>
                         ))}
@@ -209,8 +228,11 @@ export default function Experience() {
 
       {/* Fullscreen Modal */}
       {fullscreenCard && (
-        <div className="fixed inset-0 z-50 bg-background backdrop-blur-xl flex items-center justify-center p-4">
-          <div className="bg-background/70 backdrop-blur-2xl border border-gray-200/60 dark:border-gray-700/60 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+        <div className="fixed inset-0 z-50 bg-background backdrop-blur-xl flex items-center justify-center p-0 sm:p-4">
+          <div 
+            className="bg-background/70 backdrop-blur-2xl border-0 sm:border sm:border-gray-200/60 sm:dark:border-gray-700/60 rounded-none sm:rounded-2xl shadow-2xl max-w-4xl w-full h-full sm:h-auto sm:max-h-[90vh] overflow-hidden cursor-pointer"
+            onDoubleClick={closeFullscreen}
+          >
             {(() => {
               const exp = experienceContent.experiences.find(e => e.id === fullscreenCard);
               if (!exp) return null;
@@ -218,7 +240,7 @@ export default function Experience() {
               return (
                 <>
                   {/* Fullscreen Mac Window Title Bar */}
-                  <div className="bg-background/80 backdrop-blur-lg border-b border-gray-200/60 dark:border-gray-700/60 px-4 py-2.5 rounded-t-2xl flex items-center justify-between">
+                  <div className="bg-background/80 backdrop-blur-lg border-b border-gray-200/60 dark:border-gray-700/60 px-4 py-2.5 rounded-none sm:rounded-t-2xl flex items-center justify-between">
                     {/* Mac Window Controls */}
                     <div className="flex items-center space-x-2">
                       <div 
@@ -235,7 +257,7 @@ export default function Experience() {
                     {/* Window Title */}
                     <div className="flex-1 text-center">
                       <span className="text-sm font-bold text-foreground tracking-wide">
-                        {exp.position}
+                        {exp.title}
                       </span>
                     </div>
                     
@@ -246,6 +268,19 @@ export default function Experience() {
                   {/* Fullscreen Content */}
                   <div className="p-8 bg-background/40 backdrop-blur-xl overflow-y-auto max-h-[calc(90vh-60px)]">
                     <div className="max-w-3xl mx-auto">
+                      {/* Fullscreen Date and Internship Badge */}
+                      <div className="flex items-center justify-between mb-8">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-5 w-5 text-blue-500" />
+                          <span className="text-base font-medium text-foreground">
+                            {exp.startDate} - {exp.endDate}
+                          </span>
+                        </div>
+                        <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">
+                          {exp.type}
+                        </span>
+                      </div>
+
                       {/* Company and Job Title Layout - Fullscreen */}
                       <div className="flex items-start gap-6 mb-8">
                         {/* Company Icon */}
@@ -291,29 +326,26 @@ export default function Experience() {
                         
                         {/* Company Name and Job Title */}
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-4 mb-2">
+                          <div className="mb-3">
                             <a
                               href={exp.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-foreground hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-2xl transition-colors duration-200 tracking-tight"
+                              className="text-foreground hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-2xl transition-colors duration-200 tracking-tight block"
                             >
                               {exp.company}
                             </a>
-                            <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">
-                              {exp.type}
-                            </span>
                           </div>
-                          <h3 className="text-2xl font-medium text-foreground mb-2 tracking-tight">
+                          <h3 className="text-xl font-medium text-foreground tracking-tight text-muted-foreground">
                             {exp.position}
                           </h3>
                         </div>
                       </div>
 
                       {/* Description */}
-                      <div className="text-foreground mb-8 space-y-4">
+                      <div className="ml-24 text-foreground mb-8 space-y-4">
                         {exp.description.map((desc, i) => (
-                          <p key={i} className="text-base leading-relaxed">
+                          <p key={i} className="text-base leading-relaxed font-normal">
                             {desc}
                           </p>
                         ))}

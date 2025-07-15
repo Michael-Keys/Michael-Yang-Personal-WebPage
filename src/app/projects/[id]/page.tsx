@@ -12,13 +12,18 @@ export default function ProjectDetail() {
 
   const handleBackToProjects = () => {
     router.push('/');
-    // Small delay to ensure navigation completes before scrolling
-    setTimeout(() => {
+    // Use a polling approach to ensure the section is available after navigation
+    let attempts = 0;
+    const scrollToProjects = () => {
       const projectsSection = document.getElementById('projects');
       if (projectsSection) {
         projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (attempts < 20) {
+        attempts++;
+        setTimeout(scrollToProjects, 50);
       }
-    }, 100);
+    };
+    setTimeout(scrollToProjects, 100);
   };
 
   if (!project) {
