@@ -64,44 +64,43 @@ export default function ProjectDetail() {
           </div>
 
           {/* Project Header */}
-          <div className="mb-20">
-            <div className="bg-card border border-border rounded-2xl p-10 md:p-16 shadow-sm hover:shadow-md transition-all duration-500 relative overflow-hidden group">
+          <div className="mb-16 sm:mb-20">
+            <div className="bg-card border border-border rounded-2xl p-6 sm:p-10 md:p-16 shadow-sm hover:shadow-md transition-all duration-500 relative overflow-hidden group">
               <div className="relative">
-                <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-8 tracking-tight leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold text-foreground mb-6 sm:mb-8 tracking-tight leading-tight">
                   {project.title}
                 </h1>
-                <p className="text-xl text-muted-foreground mb-12 max-w-4xl leading-relaxed font-light">
+                <p className="text-lg sm:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl leading-relaxed font-light">
                   {project.description}
                 </p>
               
                 {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4 mb-10">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-4 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 font-medium shadow-sm hover:shadow-md transform hover:scale-105"
+                    className="inline-flex items-center justify-center px-4 py-2.5 sm:px-8 sm:py-4 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 font-medium shadow-sm hover:shadow-md transform hover:scale-105 text-sm sm:text-base flex-1 sm:flex-none"
                   >
-                    <Github className="h-5 w-5 mr-3" />
+                    <Github className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3" />
                     View Code
                   </a>
                   <a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-4 bg-card border border-border text-foreground rounded-full hover:bg-muted/50 hover:border-primary/30 transition-all duration-300 font-medium shadow-sm hover:shadow-md transform hover:scale-105"
+                    className="inline-flex items-center justify-center px-4 py-2.5 sm:px-8 sm:py-4 bg-card border border-border text-foreground rounded-full hover:bg-muted/50 hover:border-primary/30 transition-all duration-300 font-medium shadow-sm hover:shadow-md transform hover:scale-105 text-sm sm:text-base flex-1 sm:flex-none"
                   >
-                    <ExternalLink className="h-5 w-5 mr-3" />
                     Live Demo
                   </a>
                 </div>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-5 py-2.5 bg-primary/8 text-primary rounded-full text-sm font-medium hover:bg-primary/15 transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105"
+                      className="px-3 py-2 sm:px-5 sm:py-2.5 bg-primary/8 text-primary rounded-full text-xs sm:text-sm font-medium hover:bg-primary/15 transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105"
                     >
                       {tag}
                     </span>
@@ -114,11 +113,11 @@ export default function ProjectDetail() {
 
 
           {/* Project Details */}
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-10">
             {/* Features */}
-            <div className="bg-card border border-border rounded-2xl p-10 shadow-sm hover:shadow-md transition-all duration-500 relative overflow-hidden group">
+            <div className="bg-card border border-border rounded-2xl p-6 sm:p-10 shadow-sm hover:shadow-md transition-all duration-500 relative overflow-hidden group">
               <div className="relative">
-                <h2 className="text-2xl font-semibold text-foreground mb-10 tracking-tight">Key Features</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-8 sm:mb-10 tracking-tight">Key Features</h2>
                 <div className="space-y-8">
                   {project.features?.map((feature, index) => (
                     <div key={index} className="flex items-start space-x-5 group/item">
@@ -154,9 +153,9 @@ export default function ProjectDetail() {
             </div>
 
             {/* Technical Details */}
-            <div className="bg-card border border-border rounded-2xl p-10 shadow-sm hover:shadow-md transition-all duration-500 relative overflow-hidden group">
+            <div className="bg-card border border-border rounded-2xl p-6 sm:p-10 shadow-sm hover:shadow-md transition-all duration-500 relative overflow-hidden group">
               <div className="relative">
-                <h2 className="text-2xl font-semibold text-foreground mb-10 tracking-tight">Technical Details</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-8 sm:mb-10 tracking-tight">Technical Details</h2>
                 <div className="space-y-8">
                   <div className="flex items-start space-x-5 group/item">
                     <div className="w-12 h-12 bg-primary/8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border border-primary/15 shadow-sm group-hover/item:shadow-md group-hover/item:scale-110 transition-all duration-300">
@@ -190,10 +189,10 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          <div className="mt-20">
-            <div className="bg-card border border-border rounded-2xl p-10 shadow-sm hover:shadow-md transition-all duration-500 relative overflow-hidden group">
+          <div className="mt-16 sm:mt-20">
+            <div className="bg-card border border-border rounded-2xl p-6 sm:p-10 shadow-sm hover:shadow-md transition-all duration-500 relative overflow-hidden group">
               <div className="relative">
-                <h2 className="text-2xl font-semibold text-foreground mb-8 tracking-tight">Challenges & Solutions</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-6 sm:mb-8 tracking-tight">Challenges & Solutions</h2>
                 <p className="text-muted-foreground leading-relaxed text-lg group-hover:text-foreground transition-colors duration-300">
                   {project.challenges || "This project involved overcoming various technical challenges including performance optimization, scalability concerns, and user experience improvements. Each challenge was addressed with careful planning and implementation of best practices."}
                 </p>

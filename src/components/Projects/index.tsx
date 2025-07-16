@@ -83,7 +83,6 @@ export default function Projects() {
                       onClick={(e) => e.stopPropagation()}
                       className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 text-sm font-medium group/link"
                     >
-                      <ExternalLink className="h-4 w-4 mr-1.5 group-hover/link:scale-110 transition-transform duration-200" />
                       <span>{projectsContent.labels.demoLink}</span>
                     </a>
                   </div>

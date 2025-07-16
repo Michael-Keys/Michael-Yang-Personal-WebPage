@@ -196,7 +196,8 @@ export default function Experience() {
                               href={exp.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-foreground hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-lg transition-colors duration-200 tracking-tight block"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-foreground hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-lg transition-colors duration-200 tracking-tight block focus:outline-none"
                             >
                               {exp.company}
                             </a>
@@ -266,7 +267,7 @@ export default function Experience() {
                   </div>
 
                   {/* Fullscreen Content */}
-                  <div className="p-8 bg-background/40 backdrop-blur-xl overflow-y-auto max-h-[calc(90vh-60px)]">
+                  <div className="p-4 sm:p-8 bg-background/40 backdrop-blur-xl overflow-y-auto max-h-[calc(90vh-60px)]">
                     <div className="max-w-3xl mx-auto">
                       {/* Fullscreen Date and Internship Badge */}
                       <div className="flex items-center justify-between mb-8">
@@ -282,42 +283,42 @@ export default function Experience() {
                       </div>
 
                       {/* Company and Job Title Layout - Fullscreen */}
-                      <div className="flex items-start gap-6 mb-8">
+                      <div className="flex items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
                         {/* Company Icon */}
                         <div className="flex-shrink-0">
                           {exp.company === "Gen Digital" ? (
                             <img 
                               src="/icon/gen-digital.jpeg" 
                               alt="Gen Digital"
-                              className="w-16 h-16 object-contain rounded-lg"
+                              className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded-lg"
                             />
                           ) : exp.company === "Peking University" ? (
                             <img 
                               src="/icon/Peking.jpeg" 
                               alt="Peking University"
-                              className="w-16 h-16 object-contain rounded-lg"
+                              className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded-lg"
                             />
                           ) : exp.company === "Cornell University" ? (
                             <img 
                               src="/icon/Cornell.jpeg" 
                               alt="Cornell University"
-                              className="w-16 h-16 object-contain rounded-lg"
+                              className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded-lg"
                             />
                           ) : exp.company === "Beijing Hirain Company" ? (
                             <img 
                               src="/icon/hirain.jpeg" 
                               alt="Beijing Hirain Company"
-                              className="w-16 h-16 object-contain rounded-lg"
+                              className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded-lg"
                             />
                           ) : exp.company === "Beijing UXSINO Software Company" ? (
                             <img 
                               src="/icon/uxsino.jpeg" 
                               alt="Beijing UXSINO Software Company"
-                              className="w-16 h-16 object-contain rounded-lg"
+                              className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded-lg"
                             />
                           ) : (
-                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center">
-                              <span className="text-foreground font-bold text-xl">
+                            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-background rounded-full flex items-center justify-center">
+                              <span className="text-foreground font-bold text-lg sm:text-xl">
                                 {exp.company.split(' ').map(word => word.charAt(0)).join('').substring(0, 2)}
                               </span>
                             </div>
@@ -326,79 +327,85 @@ export default function Experience() {
                         
                         {/* Company Name and Job Title */}
                         <div className="flex-1 min-w-0">
-                          <div className="mb-3">
+                          <div className="mb-2 sm:mb-3">
                             <a
                               href={exp.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-foreground hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-2xl transition-colors duration-200 tracking-tight block"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-foreground hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-xl sm:text-2xl transition-colors duration-200 tracking-tight block focus:outline-none"
                             >
                               {exp.company}
                             </a>
                           </div>
-                          <h3 className="text-xl font-medium text-foreground tracking-tight text-muted-foreground">
+                          <h3 className="text-lg sm:text-xl font-medium text-foreground tracking-tight text-muted-foreground">
                             {exp.position}
                           </h3>
                         </div>
                       </div>
 
                       {/* Description */}
-                      <div className="ml-24 text-foreground mb-8 space-y-4">
+                      <div className="ml-16 sm:ml-24 text-foreground mb-6 sm:mb-8 space-y-3 sm:space-y-4">
                         {exp.description.map((desc, i) => (
-                          <p key={i} className="text-base leading-relaxed font-normal">
+                          <p key={i} className="text-sm sm:text-base leading-relaxed font-normal">
                             {desc}
                           </p>
                         ))}
                       </div>
 
                       {/* Key Achievements */}
-                      <div className="mb-8">
-                        <h4 className="text-xl font-semibold text-foreground mb-4 tracking-wide">
+                      <div className="mb-6 sm:mb-8">
+                        <h4 className="text-lg sm:text-xl font-semibold text-foreground mb-3 sm:mb-4 tracking-wide">
                           Key Achievements
                         </h4>
-                        <ul className="space-y-3">
+                        <div className="space-y-2 sm:space-y-3">
                           {exp.achievements.map((achievement, i) => (
-                            <li key={i} className="text-base text-foreground flex items-start">
-                              <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                            <p key={i} className="text-sm sm:text-base text-foreground">
                               {achievement}
-                            </li>
+                            </p>
                           ))}
-                        </ul>
+                        </div>
                       </div>
 
                       {/* Metadata */}
-                      <div className="flex flex-wrap gap-6 text-base text-muted-foreground mb-8">
+                      <div className="flex flex-wrap gap-4 sm:gap-6 text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
                         <div className="flex items-center gap-2">
-                          <Calendar className="h-5 w-5 text-blue-500" />
+                          <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
                           <span>{exp.startDate} - {exp.endDate}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <MapPin className="h-5 w-5 text-blue-500" />
+                          <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
                           <a
                             href={`https://www.google.com/maps/search/${encodeURIComponent(exp.location)}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 focus:outline-none"
                           >
                             {exp.location}
                           </a>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Briefcase className="h-5 w-5 text-blue-500" />
+                          <Briefcase className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
                           <span>{exp.workType}</span>
                         </div>
                       </div>
 
                       {/* Technologies */}
-                      <div className="flex flex-wrap gap-3">
-                        {exp.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-4 py-2 bg-background text-foreground text-sm font-medium rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 transition-colors border border-border"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                      <div className="mb-8">
+                        <h4 className="text-xl font-semibold text-foreground mb-4 tracking-wide">
+                          Technologies & Skills
+                        </h4>
+                        <div className="flex flex-wrap gap-2 sm:gap-3">
+                          {exp.technologies.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-2 sm:px-4 sm:py-2.5 bg-primary/8 text-primary rounded-full text-xs sm:text-sm font-medium hover:bg-primary/15 transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105 border border-primary/15"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
