@@ -5,11 +5,9 @@ export const headerContent = {
   },
   navigation: {
     items: [
+      { name: 'Home', href: '#home' },
       { name: 'About', href: '#about' },
-      { name: 'Learning', href: '#currently-learning' },
-      { name: 'Projects', href: '#projects' },
       { name: 'Experience', href: '#experience' },
-      { name: 'Education', href: '#education' },
       { name: 'Contact', href: '#contact' },
     ]
   },

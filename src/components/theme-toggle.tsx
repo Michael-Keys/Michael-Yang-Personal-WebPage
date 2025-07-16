@@ -24,8 +24,11 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       className="relative bg-white/20 dark:bg-white/10 backdrop-blur-md border border-white/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-white/50 dark:hover:border-white/30 shadow-lg transition-all duration-200 rounded-xl"
     >
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-foreground" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-foreground" />
+      {resolvedTheme === 'dark' ? (
+        <Moon className="h-[1.2rem] w-[1.2rem] transition-all duration-200 text-foreground" />
+      ) : (
+        <Sun className="h-[1.2rem] w-[1.2rem] transition-all duration-200 text-foreground" />
+      )}
       <span className="sr-only">Toggle theme</span>
     </Button>
   )

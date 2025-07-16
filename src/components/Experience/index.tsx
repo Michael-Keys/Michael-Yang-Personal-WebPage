@@ -374,7 +374,14 @@ export default function Experience() {
                         </div>
                         <div className="flex items-center gap-2">
                           <MapPin className="h-5 w-5 text-blue-500" />
-                          <span>{exp.location}</span>
+                          <a
+                            href={`https://www.google.com/maps/search/${encodeURIComponent(exp.location)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                          >
+                            {exp.location}
+                          </a>
                         </div>
                         <div className="flex items-center gap-2">
                           <Briefcase className="h-5 w-5 text-blue-500" />

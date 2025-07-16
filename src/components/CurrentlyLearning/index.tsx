@@ -3,27 +3,34 @@ import { currentlyLearningContent } from '@/content/currentlyLearning';
 
 export default function CurrentlyLearning() {
   const getProgressColor = (progress: number) => {
-    if (progress >= 80) return 'bg-green-500';
-    if (progress >= 60) return 'bg-blue-500';
-    if (progress >= 40) return 'bg-yellow-500';
-    return 'bg-orange-500';
+    if (progress >= 80) return 'from-emerald-400 to-green-400';
+    if (progress >= 60) return 'from-blue-400 to-cyan-400';
+    if (progress >= 40) return 'from-yellow-400 to-orange-400';
+    return 'from-orange-400 to-red-400';
   };
 
   const getProgressBgColor = (progress: number) => {
-    if (progress >= 80) return 'bg-green-100 dark:bg-green-900/30';
-    if (progress >= 60) return 'bg-blue-100 dark:bg-blue-900/30';
-    if (progress >= 40) return 'bg-yellow-100 dark:bg-yellow-900/30';
-    return 'bg-orange-100 dark:bg-orange-900/30';
+    if (progress >= 80) return 'bg-emerald-50 dark:bg-emerald-950/20';
+    if (progress >= 60) return 'bg-blue-50 dark:bg-blue-950/20';
+    if (progress >= 40) return 'bg-yellow-50 dark:bg-yellow-950/20';
+    return 'bg-orange-50 dark:bg-orange-950/20';
+  };
+
+  const getGlowColor = (progress: number) => {
+    if (progress >= 80) return 'shadow-emerald-400/40';
+    if (progress >= 60) return 'shadow-blue-400/40';
+    if (progress >= 40) return 'shadow-yellow-400/40';
+    return 'shadow-orange-400/40';
   };
 
   return (
     <section id="currently-learning" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-6 tracking-tight">
             {currentlyLearningContent.section.title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
             {currentlyLearningContent.section.subtitle}
           </p>
         </div>
@@ -45,10 +52,10 @@ export default function CurrentlyLearning() {
                       <IconComponent className="h-7 w-7" />
                     </span>
                   </div>
-                  <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-400">
+                  <div className="text-4xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-400 tracking-tight">
                     {stat.value}
                   </div>
-                  <div className="text-base font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-400">
+                  <div className="text-lg font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-400">
                     {stat.label}
                   </div>
                 </div>
@@ -60,61 +67,55 @@ export default function CurrentlyLearning() {
         <div className="space-y-8 mb-12">
           {currentlyLearningContent.learningAreas.map((area, areaIndex) => (
             <div key={areaIndex} className="bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-700 hover:bg-card/80">
-              <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center">
-                <TrendingUp className="h-5 w-5 mr-2 text-primary" />
+              <h3 className="text-2xl font-semibold text-foreground mb-8 flex items-center tracking-tight">
+                <TrendingUp className="h-6 w-6 mr-3 text-primary" />
                 {area.category}
               </h3>
               
               <div className="space-y-6">
                 {area.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="group">
-                    <div className="flex justify-between items-center mb-2">
-                      <div>
-                        <h4 className="font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="flex-1 pr-6">
+                        <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 tracking-tight mb-2">
                           {skill.name}
                         </h4>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-base text-muted-foreground leading-relaxed">
                           {skill.description}
                         </p>
                       </div>
-                      <div className="text-right">
-                        <div className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      <div className="text-right flex-shrink-0">
+                        <div className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 tracking-tight">
                           {skill.progress}%
                         </div>
-                        <div className="text-xs text-muted-foreground">
+                        <div className="text-sm text-muted-foreground font-medium">
                           {skill.timeframe}
                         </div>
                       </div>
                     </div>
                     
-                    {/* Snake Progress Bar */}
-                    <div className={`w-full h-6 ${getProgressBgColor(skill.progress)} rounded-lg overflow-hidden relative`}>
-                      <div className="flex items-center h-full px-0.5 justify-between">
-                        {/* Generate snake segments */}
-                        {Array.from({ length: 40 }, (_, i) => {
-                          const totalSegments = 40;
-                          const activeSegments = Math.ceil((skill.progress / 100) * totalSegments);
-                          const isActive = i < activeSegments;
-                          const isHead = i === activeSegments - 1 && skill.progress > 0;
+                    {/* Modern Progress Bar */}
+                    <div className="relative">
+                      {/* Background Track */}
+                      <div className={`w-full h-4 ${getProgressBgColor(skill.progress)} rounded-full overflow-hidden relative border border-border/30 shadow-inner`}>
+                        {/* 3D Progress Fill */}
+                        <div 
+                          className={`h-full bg-gradient-to-r ${getProgressColor(skill.progress)} rounded-full transition-all duration-1000 ease-out relative overflow-hidden ${getGlowColor(skill.progress)} shadow-lg`}
+                          style={{ 
+                            width: `${skill.progress}%`,
+                            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4), 0 3px 6px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          {/* 3D highlight effect */}
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent rounded-full"></div>
                           
-                          return (
-                            <div
-                              key={i}
-                              className={`
-                                flex-1 h-4 mx-0.5 rounded-sm transition-all duration-300
-                                ${isActive 
-                                  ? `${getProgressColor(skill.progress)} ${isHead ? 'animate-pulse shadow-lg' : ''}`
-                                  : 'bg-muted-foreground/20'
-                                }
-                                ${isHead ? 'scale-110 rounded-md' : ''}
-                                hover:scale-105 transition-transform duration-150
-                              `}
-                              style={{
-                                animationDelay: `${i * 50}ms`
-                              }}
-                            />
-                          );
-                        })}
+                          {/* Animated shine effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-12 animate-pulse"></div>
+                          
+                          {/* Flowing animation */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" 
+                               style={{ animationDelay: '0.5s' }}></div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -125,17 +126,19 @@ export default function CurrentlyLearning() {
         </div>
 
         {/* Learning Goals */}
-        <div className="bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-700">
-          <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center">
-            <Target className="h-5 w-5 mr-2 text-primary" />
+        <div className="bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-700 hover:bg-card/80">
+          <h3 className="text-2xl font-semibold text-foreground mb-8 flex items-center tracking-tight">
+            <Target className="h-6 w-6 mr-3 text-primary" />
             {currentlyLearningContent.goals.title}
           </h3>
           
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {currentlyLearningContent.goals.items.map((goal, index) => (
-              <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors duration-300">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                <p className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+              <div key={index} className="flex items-start space-x-4 group">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-1 group-hover:bg-primary/20 transition-colors duration-300">
+                  <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-110 transition-transform duration-300"></div>
+                </div>
+                <p className="text-base text-muted-foreground group-hover:text-foreground transition-colors duration-300 leading-relaxed flex-1">
                   {goal}
                 </p>
               </div>

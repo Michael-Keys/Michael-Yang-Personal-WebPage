@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
@@ -9,12 +9,50 @@ import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('About'); // Default active section
+  const [activeSection, setActiveSection] = useState('Home'); // Default active section
   const router = useRouter();
   const pathname = usePathname();
   
+  // Set active section based on current pathname
+  useEffect(() => {
+    if (pathname === '/') {
+      setActiveSection('Home');
+    } else if (pathname === '/about') {
+      setActiveSection('About');
+    } else if (pathname === '/experience') {
+      setActiveSection('Experience');
+    }
+  }, [pathname]);
+  
   const handleNavigation = (item: { name: string; href: string }) => {
     setActiveSection(item.name);
+    
+    // Handle Home button
+    if (item.name === 'Home') {
+      if (pathname === '/') {
+        // We're on the home page, scroll to top
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      } else {
+        // We're on a different page, navigate to home
+        router.push('/');
+      }
+      return;
+    }
+    
+    // Handle About button - navigate to dedicated About page
+    if (item.name === 'About') {
+      router.push('/about');
+      return;
+    }
+    
+    // Handle Experience button - navigate to dedicated Experience page
+    if (item.name === 'Experience') {
+      router.push('/experience');
+      return;
+    }
     
     // Check if we're on the home page
     if (pathname === '/') {

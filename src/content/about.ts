@@ -16,36 +16,6 @@ export const aboutContent = {
     image: "../images/profile.jpeg",
     alt: "Profile"
   },
-  skills: {
-    title: "Technical Skills",
-    categories: [
-      {
-        category: "Frontend",
-        icon: "Frontend",
-        technologies: ["React", "Next.js", "TypeScript", "Vue.js", "Tailwind CSS", "HTML", "JavaScript", "CSS"]
-      },
-      {
-        category: "Backend",
-        icon: "Backend",
-        technologies: ["Node.js", "Java", "Spring Boot", "Express.js", "FastAPI", "Python", "C++", "C"]
-      },
-      {
-        category: "Cloud & DevOps",
-        icon: "Cloud",
-        technologies: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "GitHub Actions", "Vercel"]
-      },
-      {
-        category: "Database",
-        icon: "Database",
-        technologies: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Hadoop", "Hive", "Spark"]
-      },
-      {
-        category: "Machine Learning",
-        icon: "Brain",
-        technologies: ["TensorFlow", "PyTorch", "scikit-learn", "Pandas", "NumPy", "Jupyter", "OpenCV", "Keras"]
-      }
-    ]
-  },
   interests: {
     title: "Beyond Code",
     items: [
@@ -67,7 +37,7 @@ export const aboutContent = {
       {
         name: "Reading",
         icon: "BookOpen",
-        description: "Avid reader of sci-fi novels and technical books"
+        description: "Avid reader of novels and technical books"
       }
     ]
   }

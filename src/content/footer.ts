@@ -3,16 +3,15 @@
 export const footerContent = {
   branding: {
     name: "Michael Yang",
-    tagline: "Full Stack Developer & Software Engineer",
-    description: "Building innovative web solutions with modern technologies. Always learning, always growing."
+    tagline: "Full Stack Developer & AI Engineer",
+    description: "Building innovative solutions with modern technologies. Always learning, always growing."
   },
   navigation: {
     quickLinks: [
-      { name: "About", href: "#about" },
-      { name: "Projects", href: "#projects" },
-      { name: "Experience", href: "#experience" },
-      { name: "Education", href: "#education" },
-      { name: "Contact", href: "#contact" }
+      { name: "Home", href: "/" },
+      { name: "About", href: "/about" },
+      { name: "Experience", href: "/experience" },
+      { name: "Contact", href: "/contact" }
     ],
     resources: [
       { name: "GitHub", href: "https://github.com/Michael-Yang0922" },

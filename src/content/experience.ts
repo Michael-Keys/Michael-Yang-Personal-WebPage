@@ -39,7 +39,7 @@ export const experienceContent = {
       description: [
         "Developed and integrated AI-powered tools into the eCornell platform, including personalized pre-course surveys, adaptive post-course assessments, and a conversational feedback chatbot, to enhance student learning and improve course delivery."
       ],
-      technologies: ["Artificial Intelligence (AI)", "Python", "Machine Learning", "Natural Language Processing", "Chatbot Development", "Educational Technology"],
+      technologies: ["Artificial Intelligence (AI)", "Python", "Machine Learning", "Chatbot Development", "Educational Technology", "LangChain"],
       achievements: [
         "Enhanced student learning experience through AI integration",
         "Implemented intelligent recommendation system for personalized learning",

@@ -49,44 +49,44 @@ export default function Hero() {
         })}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative z-10">
         <div className="text-center">
-          {/* Profile picture and greeting on same line - centered */}
-          <div className="flex items-center justify-center mb-8">
+          {/* Profile picture and greeting - mobile optimized */}
+          <div className="flex flex-col md:flex-row items-center justify-center mb-6 md:mb-8">
             <img
               src={heroContent.profile.image}
               alt={heroContent.profile.alt}
-              className="w-20 h-20 rounded-full border-4 border-border shadow-lg mr-4"
+              className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-border shadow-lg mb-4 md:mb-0 md:mr-4"
             />
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center">
               {heroContent.introduction.greeting} {heroContent.introduction.name}
             </h1>
           </div>
           
-          {/* Centered content */}
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-xl md:text-2xl text-muted-foreground mb-6 font-medium">
+          {/* Content container with consistent alignment */}
+          <div className="max-w-2xl mx-auto px-4 sm:px-0">
+            <h2 className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 md:mb-6 font-medium text-center">
               {heroContent.introduction.title}
             </h2>
             
-            <div className="flex items-center justify-center mb-6">
-              <MapPin className="h-5 w-5 text-muted-foreground mr-2" />
+            <div className="flex items-center justify-center mb-4 md:mb-6">
+              <MapPin className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground mr-2" />
               <a 
                 href={`https://maps.google.com/?q=${encodeURIComponent(heroContent.introduction.location)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-0 active:text-green-600 dark:active:text-green-400"
+                className="text-sm md:text-base text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-0 active:text-green-600 dark:active:text-green-400"
               >
                 {heroContent.introduction.location}
               </a>
             </div>
             
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed text-left md:text-center">
               {heroContent.introduction.description}
             </p>
             
-            {/* Social Links - centered */}
-            <div className="flex justify-center space-x-4">
+            {/* Social Links - centered with better mobile spacing */}
+            <div className="flex justify-center space-x-3 md:space-x-4">
               {heroContent.socialLinks.map((social) => {
                 const IconComponent = social.icon === 'Github' ? Github : 
                                      social.icon === 'Linkedin' ? Linkedin : 
@@ -99,9 +99,9 @@ export default function Hero() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-muted shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                    className="p-2.5 md:p-3 rounded-full bg-muted shadow-lg hover:shadow-xl transition-all hover:scale-105"
                   >
-                    <IconComponent className={`h-6 w-6 ${
+                    <IconComponent className={`h-5 w-5 md:h-6 md:w-6 ${
                       social.icon === 'Linkedin' ? 'text-blue-600' : 
                       social.icon === 'Twitter' ? 'text-blue-400' : 
                       'text-muted-foreground'
@@ -111,8 +111,6 @@ export default function Hero() {
               })}
             </div>
           </div>
-
-
         </div>
       </div>
     </section>

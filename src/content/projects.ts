@@ -51,8 +51,8 @@ export const projectsContent = {
     {
       id: 3,
       title: "AI-Powered Resume Analyzer & Job Matching Platform",
-      description: "An intelligent web application that analyzes uploaded resumes and job descriptions using NLP and machine learning to provide personalized resume optimization recommendations with interactive heat maps showing skill gaps and improvement areas.",
-      image: "/api/placeholder/400/250",
+      description: "An intelligent web application that analyzes uploaded resumes and job descriptions using LLMs to provide personalized resume optimization recommendations with interactive heat maps showing skill gaps and improvement areas.",
+      image: "/images/resume-project.jpeg",
       tags: ["Python", "React", "NLP", "Machine Learning", "OpenAI API", "Flask", "Data Visualization", "Resume Parsing", "Text Analysis"],
       github: "https://github.com",
       demo: "https://demo.com",
@@ -62,7 +62,7 @@ export const projectsContent = {
       features: [
         "Resume upload and parsing functionality supporting PDF, DOC, and DOCX formats",
         "Job description input and analysis with automatic keyword extraction",
-        "Advanced NLP processing using transformers and spaCy for text analysis",
+        "LLMs processing using OpenAI API for text analysis",
         "Interactive heat map visualization showing skill match percentages",
         "Personalized resume optimization recommendations based on job requirements",
         "Skill gap analysis with priority scoring system",

@@ -1,5 +1,7 @@
-import { Code, Database, Cloud, Palette, Coffee, Camera, Music, BookOpen, Brain, UtensilsCrossed, Play, Trophy } from 'lucide-react';
+import { Coffee, Camera, Music, BookOpen, UtensilsCrossed, Play, Trophy, GraduationCap } from 'lucide-react';
 import { aboutContent } from '@/content/about';
+import { educationContent } from '@/content/education';
+import { academicInterestsContent } from '@/content/academicInterests';
 
 export default function About() {
   return (
@@ -42,49 +44,57 @@ export default function About() {
           </div>
         </div>
 
-        {/* Skills Section */}
+        {/* Education and Academic Interests Section */}
         <div className="mt-24">
-          <h3 className="text-2xl font-semibold text-foreground mb-16 text-center tracking-tight">
-            {aboutContent.skills.title}
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {aboutContent.skills.categories.map((skill, index) => {
-              const IconComponent = skill.icon === 'Code' ? Code : 
-                                   skill.icon === 'Database' ? Database : 
-                                   skill.icon === 'Cloud' ? Cloud : 
-                                   skill.icon === 'Palette' ? Palette : 
-                                   skill.icon === 'Brain' ? Brain : Code;
-              
-              return (
-                <div key={index} className="border border-border p-6 rounded-xl shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-700 group hover:scale-105 hover:bg-card hover:border-primary/30 cursor-pointer">
-                  <div className="flex flex-col items-center mb-6">
-                    <div className="p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-400 mb-4">
-                      <IconComponent className="h-5 w-5 group-hover:rotate-12 transition-transform duration-400" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            {/* Academic Interests */}
+            <div>
+              <h3 className="text-2xl font-semibold text-foreground mb-8 tracking-tight">
+                {academicInterestsContent.section.title}
+              </h3>
+              <ul className="space-y-4">
+                {academicInterestsContent.interests.map((interest) => (
+                  <li key={interest.id} className="flex items-center text-foreground group">
+                    <span className="w-2 h-2 bg-primary rounded-full mr-4 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>
+                    <span className="text-base font-medium group-hover:text-primary transition-colors duration-300">
+                      {interest.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Education */}
+            <div>
+              <h3 className="text-2xl font-semibold text-foreground mb-8 tracking-tight">
+                Education
+              </h3>
+              <div className="space-y-6">
+                {educationContent.education.map((edu, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <GraduationCap className="h-6 w-6 text-foreground" />
                     </div>
-                    <h4 className="text-lg font-semibold text-foreground tracking-tight text-center group-hover:text-primary transition-colors duration-400">
-                      {skill.category}
-                    </h4>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-foreground mb-1 tracking-tight">
+                        {edu.degree}, {edu.endDate.split(' ')[1]}
+                      </h4>
+                      <p className="text-base text-muted-foreground">
+                        {edu.institution}
+                      </p>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    {skill.technologies.map((tech, techIndex) => (
-                      <div
-                        key={techIndex}
-                        className="bg-muted text-muted-foreground px-3 py-2 rounded-lg text-sm font-medium text-center hover:bg-primary/10 hover:text-primary transition-all duration-400 font-mono hover:scale-105"
-                      >
-                        {tech}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
 
         {/* Interests Section */}
         <div className="mt-24">
-          <h3 className="text-2xl font-semibold text-foreground mb-16 text-center tracking-tight">
+          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6 tracking-tight text-center">
             {aboutContent.interests.title}
           </h3>
           
@@ -116,6 +126,8 @@ export default function About() {
             })}
           </div>
         </div>
+
+
       </div>
     </section>
   );
