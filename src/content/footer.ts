@@ -10,11 +10,10 @@ export const footerContent = {
     quickLinks: [
       { name: "Home", href: "/" },
       { name: "About", href: "/about" },
-      { name: "Experience", href: "/experience" },
-      { name: "Contact", href: "/contact" }
+      { name: "Experience", href: "/experience" }
     ],
     resources: [
-      { name: "GitHub", href: "https://github.com/Michael-Yang0922" },
+      { name: "GitHub", href: "https://github.com/Michael-Keys" },
       { name: "LinkedIn", href: "https://linkedin.com/in/xiuyang0922" },
       { name: "Resume", href: "/documents/resume.pdf" }
     ]
@@ -28,7 +27,7 @@ export const footerContent = {
     platforms: [
       {
         name: "GitHub",
-        href: "https://github.com/Michael-Yang0922",
+        href: "https://github.com/Michael-Keys",
         icon: "Github"
       },
       {

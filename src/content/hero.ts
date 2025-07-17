@@ -13,7 +13,7 @@ export const heroContent = {
   socialLinks: [
     {
       name: "GitHub",
-      href: "https://github.com/Michael-Yang0922",
+      href: "https://github.com/Michael-Keys",
       icon: "Github"
     },
     {

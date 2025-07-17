@@ -54,74 +54,59 @@ export default function Header() {
       return;
     }
     
+    // Handle Contact button - always scroll to bottom of current page
+    if (item.name === 'Contact') {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+      return;
+    }
+    
     // Check if we're on the home page
     if (pathname === '/') {
       // We're on the home page, scroll to section
-      if (item.name === 'Contact') {
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: 'smooth'
+      const targetId = item.href.replace('#', '');
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
         });
-      } else {
-        const targetId = item.href.replace('#', '');
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }
       }
     } else {
       // We're on a different page, navigate to home and jump directly to section
       const targetId = item.href.replace('#', '');
       
-      if (item.name === 'Contact') {
-        // For contact, navigate to home then scroll to bottom
-        router.push('/');
-        // Use a longer timeout and ensure DOM is ready
-        const scrollToContact = () => {
+      // For other sections, navigate to home then jump to section
+      router.push('/');
+      
+      const scrollToSection = () => {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        } else {
+          // If element not found, try again after a short delay
           setTimeout(() => {
-            window.scrollTo({
-              top: document.body.scrollHeight,
-              behavior: 'smooth'
-            });
+            const retryElement = document.getElementById(targetId);
+            if (retryElement) {
+              retryElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              });
+            }
           }, 100);
-        };
-        // Try multiple times to ensure it works
-        setTimeout(scrollToContact, 200);
-        setTimeout(scrollToContact, 500);
-      } else {
-        // For other sections, navigate to home then jump to section
-        router.push('/');
-        
-        const scrollToSection = () => {
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            });
-          } else {
-            // If element not found, try again after a short delay
-            setTimeout(() => {
-              const retryElement = document.getElementById(targetId);
-              if (retryElement) {
-                retryElement.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start',
-                });
-              }
-            }, 100);
-          }
-        };
-        
-        // Try multiple times to ensure it works after navigation
-        setTimeout(scrollToSection, 200);
-        setTimeout(scrollToSection, 500);
-        setTimeout(scrollToSection, 800);
-      }
+        }
+      };
+      
+      // Try multiple times to ensure it works after navigation
+      setTimeout(scrollToSection, 200);
+      setTimeout(scrollToSection, 500);
+      setTimeout(scrollToSection, 800);
     }
   };
 
@@ -130,7 +115,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-foreground">
+            <Link href="/about" className="text-2xl font-bold text-foreground focus:outline-none focus:ring-0 select-none">
               {headerContent.branding.name}
             </Link>
           </div>

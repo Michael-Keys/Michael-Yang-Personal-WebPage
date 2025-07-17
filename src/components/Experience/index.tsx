@@ -44,7 +44,7 @@ export default function Experience() {
     <section id="experience" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
             Professional Journey
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
@@ -72,19 +72,19 @@ export default function Experience() {
                     <div className="absolute inset-0 w-5 h-5 rounded-full border-2 border-blue-400/30 animate-ping"></div>
                   </div>
                   
-                  {/* Enhanced Date Label */}
-                  <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center">
-                    <div className="bg-background backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg shadow-black/5 dark:shadow-white/5 min-w-[60px]">
-                      <div className="text-xs font-semibold text-foreground tracking-tight">
+                  {/* Enhanced Date Label - Apple Style */}
+                  <div className="absolute top-6 left-1/2 transform -translate-x-1/2 text-center">
+                    <div className="bg-background/80 backdrop-blur-md border-[0.5px] border-border/20 rounded-xl px-2.5 py-1.5 shadow-lg shadow-black/8 dark:shadow-white/8 min-w-[55px] hover:shadow-xl hover:shadow-black/12 dark:hover:shadow-white/12 transition-all duration-500 ease-out hover:scale-105 hover:bg-background/90">
+                      <div className="text-xs font-bold text-foreground tracking-wide">
                         {exp.startDate.split(' ')[0]}
                       </div>
-                      <div className="text-xs text-muted-foreground font-medium mt-0.5 tracking-tight">
+                      <div className="text-[10px] text-muted-foreground font-medium mt-0.5 tracking-wide">
                         {exp.startDate.split(' ')[1]}
                       </div>
                     </div>
                     
                     {/* Connection line from dot to label */}
-                    <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-px h-2 bg-gradient-to-b from-gray-300 to-transparent dark:from-gray-600"></div>
+                    <div className="absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-px h-1.5 bg-gradient-to-b from-gray-300/80 to-transparent dark:from-gray-600/80"></div>
                   </div>
                 </div>
 
@@ -376,7 +376,7 @@ export default function Experience() {
                         <div className="flex items-center gap-2">
                           <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
                           <a
-                            href={`https://www.google.com/maps/search/${encodeURIComponent(exp.location)}`}
+                            href={exp.googleMapsLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}

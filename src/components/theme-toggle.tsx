@@ -22,7 +22,7 @@ export function ThemeToggle() {
       variant="ghost" 
       size="icon" 
       onClick={toggleTheme}
-      className="relative bg-white/20 dark:bg-white/10 backdrop-blur-md border border-white/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-white/50 dark:hover:border-white/30 shadow-lg transition-all duration-200 rounded-xl"
+      className="relative bg-white/20 dark:bg-white/10 backdrop-blur-md border border-white/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-white/50 dark:hover:border-white/30 shadow-lg transition-all duration-200 rounded-xl focus:outline-none focus:ring-0"
     >
       {resolvedTheme === 'dark' ? (
         <Moon className="h-[1.2rem] w-[1.2rem] transition-all duration-200 text-foreground" />

@@ -190,18 +190,21 @@
 
   @keyframes float {
     0%, 100% { 
-      transform: translateY(0px) rotate(0deg); 
+      transform: translateY(0px) rotate(0deg) scale(1); 
     }
-    33% { 
-      transform: translateY(-10px) rotate(1deg); 
+    25% { 
+      transform: translateY(-15px) rotate(2deg) scale(1.05); 
     }
-    66% { 
-      transform: translateY(5px) rotate(-1deg); 
+    50% { 
+      transform: translateY(-8px) rotate(-1deg) scale(1.02); 
+    }
+    75% { 
+      transform: translateY(8px) rotate(1deg) scale(0.98); 
     }
   }
 
   .animate-float {
-    animation: float 4s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
   }
 
   @keyframes spin-slow {

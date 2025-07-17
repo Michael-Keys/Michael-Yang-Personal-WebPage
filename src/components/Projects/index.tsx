@@ -15,12 +15,9 @@ export default function Projects() {
     <section id="projects" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             {projectsContent.section.title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {projectsContent.section.subtitle}
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -71,7 +68,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium group/link"
+                      className="flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium group/link focus:outline-none focus:ring-0"
                     >
                       <Github className="h-4 w-4 mr-1.5 group-hover/link:scale-110 transition-transform duration-200" />
                       <span>{projectsContent.labels.codeLink}</span>
@@ -81,7 +78,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 text-sm font-medium group/link"
+                      className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 text-sm font-medium group/link focus:outline-none focus:ring-0"
                     >
                       <span>{projectsContent.labels.demoLink}</span>
                     </a>

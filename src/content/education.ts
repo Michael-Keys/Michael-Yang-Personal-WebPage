@@ -5,7 +5,7 @@ export const educationContent = {
     {
       id: "cornell-university",
       institution: "Cornell University",
-      degree: "Master of Engineering in Operation Research",
+      degree: "Master of Engineering in Operation Research and Information Engineering",
       concentration: "Data Analytic Concentration",
       location: "Ithaca, NY",
       startDate: "Aug 2024",

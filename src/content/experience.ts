@@ -14,6 +14,7 @@ export const experienceContent = {
       location: "Mountain View, California, United States",
       workType: "On-site",
       website: "https://www.gendigital.com/",
+      googleMapsLink: "https://www.google.com/maps/search/Gen+Digital",
       description: [
         "Developed and optimized scalable backend microservices for the eStore platform as part of the LEAP team, improving performance and API integration, which contributed to a 10% increase in user traffic."
       ],
@@ -36,6 +37,7 @@ export const experienceContent = {
       location: "Ithaca, New York, United States",
       workType: "Remote",
       website: "https://www.cornell.edu/",
+      googleMapsLink: "https://www.google.com/maps/search/Cornell+University",
       description: [
         "Developed and integrated AI-powered tools into the eCornell platform, including personalized pre-course surveys, adaptive post-course assessments, and a conversational feedback chatbot, to enhance student learning and improve course delivery."
       ],
@@ -58,6 +60,7 @@ export const experienceContent = {
       location: "Beijing, China",
       workType: "On-site",
       website: "https://www.pku.edu.cn/",
+      googleMapsLink: "https://www.google.com/maps/search/Peking+University",
       description: [
         "Conducted research on optimization methods in natural language processing with a focus on Verbal Intelligence, explored Large Language Models and In-Context Learning, and ran LLM-based demos for question answering tasks."
       ],
@@ -79,6 +82,7 @@ export const experienceContent = {
       location: "Beijing, China",
       workType: "On-site",
       website: "https://www.hirain.com/",
+      googleMapsLink: "https://www.google.com/maps/search/beijing",
       description: [
         "Developed and tested embedded C++ APIs for automotive control units, implemented a real-time distributed system, and built an end-to-end machine learning model for real-time human motion monitoring and alerting."
       ],
@@ -101,10 +105,11 @@ export const experienceContent = {
       location: "Beijing, China",
       workType: "On-site",
       website: "http://www.uxsino.com/",
+      googleMapsLink: "https://www.google.com/maps/search/Beijing Business District Parking",
       description: [
         "Managed a population database of 1.4 billion records for government use, writing complex SQL queries for data analysis and automation, and developed Shell scripts for large-scale data transfer and error handling."
       ],
-      technologies: ["SQL", "Database Management", "Shell Scripting", "Data Processing", "Government Systems", "Big Data"],
+      technologies: ["SQL", "Python", "Database Management", "Shell Scripting", "Data Processing", "Big Data"],
       achievements: [
         "Successfully managed database operations for 1.4 billion population records",
         "Implemented complex SQL queries for government data analysis",

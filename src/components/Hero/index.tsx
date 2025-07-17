@@ -25,22 +25,22 @@ export default function Hero() {
           return (
             <div
               key={tech.name}
-              className="absolute opacity-25 dark:opacity-30 animate-float"
+              className="absolute opacity-40 dark:opacity-50 animate-float hover:opacity-80 transition-opacity duration-300"
               style={{
                 left: `${position.left}%`,
                 top: `${position.top}%`,
                 animationDelay: `${index * 0.7}s`,
-                animationDuration: `${4 + index * 0.4}s`
+                animationDuration: `${6 + index * 0.3}s`
               }}
             >
               <img
                 src={tech.iconUrl}
                 alt={tech.name}
-                className="w-8 h-8 filter drop-shadow-md dark:drop-shadow-lg"
+                className="w-8 h-8 filter drop-shadow-lg dark:drop-shadow-xl animate-pulse"
                 style={{ 
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))',
                   ...(typeof window !== 'undefined' && document.documentElement.classList.contains('dark') && {
-                    filter: 'drop-shadow(0 2px 6px rgba(255,255,255,0.1))'
+                    filter: 'drop-shadow(0 4px 12px rgba(255,255,255,0.2))'
                   })
                 }}
               />
@@ -99,7 +99,7 @@ export default function Hero() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 md:p-3 rounded-full bg-muted shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                    className="p-2.5 md:p-3 rounded-full bg-muted shadow-lg hover:shadow-xl transition-all hover:scale-105 focus:outline-none focus:ring-0"
                   >
                     <IconComponent className={`h-5 w-5 md:h-6 md:w-6 ${
                       social.icon === 'Linkedin' ? 'text-blue-600' : 

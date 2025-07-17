@@ -27,12 +27,9 @@ export default function CurrentlyLearning() {
     <section id="currently-learning" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             {currentlyLearningContent.section.title}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
-            {currentlyLearningContent.section.subtitle}
-          </p>
         </div>
 
         {/* Learning Stats */}
@@ -66,7 +63,7 @@ export default function CurrentlyLearning() {
         {/* Learning Areas */}
         <div className="space-y-8 mb-12">
           {currentlyLearningContent.learningAreas.map((area, areaIndex) => (
-            <div key={areaIndex} className="bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-700 hover:bg-card/80">
+            <div key={areaIndex} className="bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-700 ease-out hover:scale-[1.02] hover:bg-card/90 hover:border-primary/30 cursor-pointer">
               <h3 className="text-2xl font-semibold text-foreground mb-8 flex items-center tracking-tight">
                 <TrendingUp className="h-6 w-6 mr-3 text-primary" />
                 {area.category}
@@ -74,10 +71,10 @@ export default function CurrentlyLearning() {
               
               <div className="space-y-6">
                 {area.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="group">
+                  <div key={skillIndex} className="group p-4 rounded-lg hover:bg-muted/30 transition-all duration-500 ease-out hover:scale-[1.01] cursor-pointer">
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex-1 pr-6">
-                        <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 tracking-tight mb-2">
+                        <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-all duration-500 ease-out tracking-tight mb-2">
                           {skill.name}
                         </h4>
                         <p className="text-base text-muted-foreground leading-relaxed">
@@ -85,7 +82,7 @@ export default function CurrentlyLearning() {
                         </p>
                       </div>
                       <div className="text-right flex-shrink-0">
-                        <div className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 tracking-tight">
+                        <div className="text-2xl font-semibold text-foreground group-hover:text-primary transition-all duration-500 ease-out tracking-tight">
                           {skill.progress}%
                         </div>
                         <div className="text-sm text-muted-foreground font-medium">
@@ -126,7 +123,7 @@ export default function CurrentlyLearning() {
         </div>
 
         {/* Learning Goals */}
-        <div className="bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-700 hover:bg-card/80">
+        <div className="bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-700 ease-out hover:scale-[1.02] hover:bg-card/90 hover:border-primary/30 cursor-pointer">
           <h3 className="text-2xl font-semibold text-foreground mb-8 flex items-center tracking-tight">
             <Target className="h-6 w-6 mr-3 text-primary" />
             {currentlyLearningContent.goals.title}
@@ -135,10 +132,10 @@ export default function CurrentlyLearning() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {currentlyLearningContent.goals.items.map((goal, index) => (
               <div key={index} className="flex items-start space-x-4 group">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-1 group-hover:bg-primary/20 transition-colors duration-300">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-1 group-hover:bg-primary/20 transition-all duration-500 ease-out">
                   <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-110 transition-transform duration-300"></div>
                 </div>
-                <p className="text-base text-muted-foreground group-hover:text-foreground transition-colors duration-300 leading-relaxed flex-1">
+                <p className="text-base text-muted-foreground group-hover:text-foreground transition-all duration-500 ease-out leading-relaxed flex-1">
                   {goal}
                 </p>
               </div>
