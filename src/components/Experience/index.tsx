@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { MapPin, Calendar, Briefcase, ExternalLink } from 'lucide-react';
+import { MapPin, Calendar, Briefcase } from 'lucide-react';
 import { experienceContent } from '@/content/experience';
 
 export default function Experience() {

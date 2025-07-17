@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from 'next/navigation';
-import { ArrowLeft, Github, ExternalLink, Calendar, Users, Zap } from 'lucide-react';
+import { ArrowLeft, Github, Calendar, Users, Zap } from 'lucide-react';
 import { projectsContent } from '@/content/projects';
 import Header from '@/components/Header';
 
@@ -33,7 +33,7 @@ export default function ProjectDetail() {
         <div className="pt-24 pb-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl font-bold text-foreground mb-4">Project Not Found</h1>
-            <p className="text-lg text-muted-foreground mb-8">The project you're looking for doesn't exist.</p>
+            <p className="text-lg text-muted-foreground mb-8">The project you&apos;re looking for doesn&apos;t exist.</p>
             <button 
               onClick={handleBackToProjects}
               className="inline-flex items-center px-6 py-3 bg-card border border-border rounded-xl hover:bg-muted/50 transition-colors text-foreground shadow-sm"
