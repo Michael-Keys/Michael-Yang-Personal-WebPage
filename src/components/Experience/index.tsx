@@ -75,10 +75,10 @@ export default function Experience() {
                   {/* Enhanced Date Label - Apple Style */}
                   <div className="absolute top-6 left-1/2 transform -translate-x-1/2 text-center">
                     <div className="bg-background/80 backdrop-blur-md border-[0.5px] border-border/20 rounded-xl px-2.5 py-1.5 shadow-lg shadow-black/8 dark:shadow-white/8 min-w-[55px] hover:shadow-xl hover:shadow-black/12 dark:hover:shadow-white/12 transition-all duration-500 ease-out hover:scale-105 hover:bg-background/90">
-                      <div className="text-xs font-bold text-foreground tracking-wide">
+                      <div className="text-xs font-medium text-foreground tracking-wide">
                         {exp.startDate.split(' ')[0]}
                       </div>
-                      <div className="text-[10px] text-muted-foreground font-medium mt-0.5 tracking-wide">
+                      <div className="text-xs font-medium text-muted-foreground mt-0.5 tracking-wide">
                         {exp.startDate.split(' ')[1]}
                       </div>
                     </div>
