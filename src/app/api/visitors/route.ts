@@ -1,39 +1,66 @@
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
 
-const VISITS_FILE = path.join(process.cwd(), 'data', 'visits.json');
+// Simple in-memory counter for development and fallback
+let visitCount = 0;
 
-// Ensure data directory exists
-async function ensureDataDirectory() {
-  const dataDir = path.join(process.cwd(), 'data');
-  try {
-    await fs.access(dataDir);
-  } catch {
-    await fs.mkdir(dataDir, { recursive: true });
-  }
+// Try to get initial count from environment variable or start at 0
+try {
+  visitCount = parseInt(process.env.INITIAL_VISIT_COUNT || '0', 10);
+} catch {
+  visitCount = 0;
 }
 
 // Get current visit count
 async function getVisitCount(): Promise<number> {
+  // Try external service first
   try {
-    await ensureDataDirectory();
-    const data = await fs.readFile(VISITS_FILE, 'utf-8');
-    const parsed = JSON.parse(data);
-    return parsed.count || 0;
-  } catch {
-    return 0;
+    const response = await fetch('https://api.countapi.xyz/get/personal-website-visitor-count/visits', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (response.ok) {
+      const data = await response.json();
+      if (data.value !== undefined) {
+        visitCount = data.value;
+        return data.value;
+      }
+    }
+  } catch (error) {
+    console.error('Error getting visit count from external service:', error);
   }
+  
+  // Fallback to in-memory counter
+  return visitCount;
 }
 
-// Update visit count
-async function updateVisitCount(count: number): Promise<void> {
-  await ensureDataDirectory();
-  const data = {
-    count,
-    lastUpdated: new Date().toISOString()
-  };
-  await fs.writeFile(VISITS_FILE, JSON.stringify(data, null, 2));
+// Increment visit count
+async function incrementVisitCount(): Promise<number> {
+  // Try external service first
+  try {
+    const response = await fetch('https://api.countapi.xyz/hit/personal-website-visitor-count/visits', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (response.ok) {
+      const data = await response.json();
+      if (data.value !== undefined) {
+        visitCount = data.value;
+        return data.value;
+      }
+    }
+  } catch (error) {
+    console.error('Error incrementing visit count with external service:', error);
+  }
+  
+  // Fallback to in-memory counter
+  visitCount += 1;
+  return visitCount;
 }
 
 // GET: Return current visit count
@@ -43,20 +70,18 @@ export async function GET() {
     return NextResponse.json({ count });
   } catch (error) {
     console.error('Error getting visit count:', error);
-    return NextResponse.json({ error: 'Failed to get visit count' }, { status: 500 });
+    return NextResponse.json({ count: visitCount });
   }
 }
 
 // POST: Increment visit count
 export async function POST() {
   try {
-    const currentCount = await getVisitCount();
-    const newCount = currentCount + 1;
-    await updateVisitCount(newCount);
-    
+    const newCount = await incrementVisitCount();
     return NextResponse.json({ count: newCount });
   } catch (error) {
     console.error('Error updating visit count:', error);
-    return NextResponse.json({ error: 'Failed to update visit count' }, { status: 500 });
+    visitCount += 1;
+    return NextResponse.json({ count: visitCount });
   }
 } 
