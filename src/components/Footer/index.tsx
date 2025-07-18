@@ -1,12 +1,9 @@
 "use client";
 
-import { Github, Linkedin, Twitter, Mail, Heart, Eye, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from 'lucide-react';
 import { footerContent } from '@/content/footer';
-import { useVisitorCount } from '@/hooks/useVisitorCount';
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { formattedCount, isLoading } = useVisitorCount();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -120,16 +117,6 @@ export default function Footer() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-muted-foreground">
-                <div className="flex items-center">
-                  <Eye className="h-3 w-3 md:h-4 md:w-4 mr-1" />
-                  <span className="text-xs md:text-sm">
-                    {isLoading ? (
-                      <span className="animate-pulse">Loading...</span>
-                    ) : (
-                      `${formattedCount} ${footerContent.stats.visitors.label}`
-                    )}
-                  </span>
-                </div>
                 <div className="flex items-center">
                   <Heart className="h-3 w-3 md:h-4 md:w-4 mr-1 text-red-500" />
                   <span className="text-xs md:text-sm">Made with love</span>
