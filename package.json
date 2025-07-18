@@ -11,6 +11,7 @@
   "dependencies": {
     "@next/font": "^14.2.15",
     "@types/nodemailer": "^6.4.17",
+    "@vercel/edge-config": "^1.4.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.525.0",
     "next": "15.3.5",
