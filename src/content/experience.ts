@@ -9,20 +9,20 @@ export const experienceContent = {
       title: "Software Engineer",
       type: "Internship",
       startDate: "May 2025",
-      endDate: "Present",
+      endDate: "Aug 2025",
       duration: "3 mos",
       location: "Mountain View, California, United States",
       workType: "On-site",
       website: "https://www.gendigital.com/",
       googleMapsLink: "https://www.google.com/maps/search/Gen+Digital",
       description: [
-        "Developed and optimized scalable backend microservices for the eStore platform as part of the LEAP team, improving performance and API integration, which contributed to a 10% increase in user traffic."
+        "Developed and optimized scalable backend microservices for the eStore platform as part of the LEAP team, enhancing performance and API integration to drive a 10% increase in user traffic, and implemented a machine learning pre-filter for malicious URL detection to reduce analysis costs."
       ],
-      technologies: ["Java", "Spring Boot", "Microservices", "Backend Development", "API Design", "System Architecture"],
+      technologies: ["Java", "Spring Boot", "Microservices", "Backend Development", "API Design", "System Architecture", "Machine Learning", "Cybersecurity"],
       achievements: [
-        "Improved user traffic by 10% through enhanced system responsiveness",
         "Successfully integrated with existing microservice architecture",
-        "Maintained adherence to API and security standards"
+        "Improved user traffic by 10% through enhanced system responsiveness",
+        "Developed an Machine Learning pre-filter model for malicious URL domain detection, reducing costs by filtering out threats before LLM analysis"
       ]
     },
     {
@@ -62,12 +62,12 @@ export const experienceContent = {
       website: "https://www.pku.edu.cn/",
       googleMapsLink: "https://www.google.com/maps/search/Peking+University",
       description: [
-        "Conducted research on optimization methods in natural language processing with a focus on Verbal Intelligence, explored Large Language Models and In-Context Learning, and ran LLM-based demos for question answering tasks."
+        "Researched optimization methods in NLP with a focus on Verbal Intelligence through an extensive literature review, and designed and evaluated in-context learning mechanisms across multiple LLMs to assess their effectiveness in advanced language understanding."
       ],
       technologies: ["Machine Learning", "Python (Programming Language)", "Natural Language Processing", "Large Language Models", "Research Methodology", "Academic Writing"],
       achievements: [
         "Conducted comprehensive literature review on NLP optimization",
-        "Gained expertise in Large Language Models and In-Context Learning"
+        "Researched In-Context Learning and designed and evaluated various mechanisms across multiple LLMs"
       ]
     },
     {

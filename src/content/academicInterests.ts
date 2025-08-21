@@ -5,6 +5,11 @@ export const academicInterestsContent = {
   },
   interests: [
     {
+      id: "AI-agent",
+      name: "AI Agent",
+      category: "AI Agent"
+    },
+    {
       id: "machine-learning",
       name: "Machine Learning",
       category: "Machine Learning"
@@ -18,11 +23,6 @@ export const academicInterestsContent = {
       id: "natural-language-processing",
       name: "Natural Language Processing",
       category: "Natural Language Processing"
-    },
-    {
-      id: "AI-agent",
-      name: "AI Agent",
-      category: "AI Agent"
     }
   ]
 }; 

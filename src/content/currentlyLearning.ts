@@ -21,7 +21,7 @@ const learningAreas = [
     skills: [
       {
         name: "Advanced React & Next.js",
-        progress: 65,
+        progress: 100,
         description: "Server-side rendering, optimization, and advanced patterns",
         timeframe: "2 months"
       },
